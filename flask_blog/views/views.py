@@ -14,7 +14,7 @@ def login():
         else:
             session['logged_in'] = True
             flash('Logged in succesfully')
-            return redirect(url_for('home'))
+            return redirect(url_for('show_entries'))
     return render_template('entries/login.html')
 
 
@@ -22,4 +22,4 @@ def login():
 def logout():
     session.pop('logged_in', None)
     flash("logged out")
-    return redirect(url_for('home'))
+    return redirect(url_for('show_entries'))

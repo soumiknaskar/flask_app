@@ -1,6 +1,5 @@
 DEBUG = True
 USERNAME = 'soumik'
 PASSWORD = 'soumik'
-SECRET_KEY = 'secret key'
+SECRET_KEY = 'p9Bv<3Eid9%$i01'
 SQLALCHEMY_DATABASE_URI= 'sqlite:///flask_blog.db'
-SQLALCHEMY_TRACK_MODIFICATION = True

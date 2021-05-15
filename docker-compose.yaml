@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  website:
+    build: .
+    links:
+      - db
+    ports:
+      - '8000:5000'
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: soumik
+      MYSQL_PASSWORD: Coke@650km
+      MYSQL_DATABASE: blogs
