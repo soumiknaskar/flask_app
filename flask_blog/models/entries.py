@@ -1,18 +1,14 @@
-from flask_blog import db
 from datetime import datetime
 
 
-class Entries(db.Model):
-    __tablename__='entries'
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), unique=True)
-    text = db.Column(db.Text)
-    created_at = db.Column(db.DateTime)
-
+class Entries():
     def __init__(self, title = None, text = None):
         self.title = title
         self.text = text
         self.created_at = datetime.utcnow()
+
+    def user(self):
+        return self.title, self.text, self.created_at
 
     def __repr__(self):
         return '<Entry id:{} title:{} text:{}>'.format(self.id, self.title, self.text)
