@@ -10,8 +10,6 @@ app.config["MYSQL_DATABASE_PASSWORD"] = 'Coke@650km'
 app.config["MYSQL_DATABASE_DB"] = 'blogs'
 app.config["MYSQL_DATABASE_HOST"] = 'localhost'
 app.config["MYSQL_DATABASE_PORT"] = 32000
-app.config['USERNAME'] = 'soumik'
-app.config['PASSWORD'] = 'soumik'
 app.config['SECRET_KEY'] = 'p9Bv<3Eid9%$i01'
 
 from flask_blog.views import entries, views
