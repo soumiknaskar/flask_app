@@ -65,7 +65,16 @@ def update_entry(id):
     text = request.form['text']
     cursor.execute("""UPDATE entries SET title = %s, text = %s WHERE id = %s""", (title, text, id))
     cursor.connection.commit()
-    cursor.execute('SELECT * FROM entries where id = id')
-    entry = cursor.fetchone()
     flash('Content has been updated')
+    return redirect(url_for('show_entries'))
+
+
+@app.route('/entries/<int:id>/delete', methods=['POST'])
+def delete_entry(id):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    cursor = mysql.get_db().cursor()
+    cursor.execute("""DELETE FROM entries WHERE id = %s""", (id))
+    cursor.connection.commit()
+    flash('Blog has been deleted')
     return redirect(url_for('show_entries'))
